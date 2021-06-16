@@ -1,12 +1,19 @@
 package character;
 
+import enemies.Enemy;
+import treasure.*;
+
+import java.util.ArrayList;
+
 public abstract class Character {
     private int hitPoints;
     private int stamina;
 
-    public Character(int hitPoints, int stamina) {
+    public Character(int hitPoints, int stamina, Weapon equippedWeapon) {
         this.hitPoints = hitPoints;
         this.stamina = stamina;
+        this.equippedWeapon = equippedWeapon;
+        this.inventory = new ArrayList<>();
     }
 
     public int getHitPoints() {
@@ -25,8 +32,12 @@ public abstract class Character {
         this.stamina = stamina;
     }
 
-    public String attack(){
-        return "I am attacking! Grrr";
+    public void attack(Character target){
+
+    }
+
+    public int getWeaponDamage(){
+        return this.equippedWeapon.getDamageFromEnum();
     }
 
 

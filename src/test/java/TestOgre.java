@@ -5,6 +5,8 @@ import playerclasses.Fighter;
 import playerclasses.Race;
 import spells.Element;
 import spells.Spell;
+import treasure.Weapon;
+import treasure.WeaponType;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,11 +15,13 @@ public class TestOgre {
     private Ogre ogre;
     private Spell spell;
     private Fighter fighter;
+    private Weapon weapon;
 
     @Before
     public void setUp(){
-        fighter = new Fighter("Trogdor",100, 100,20,10, Race.HUMAN);
-        ogre = new Ogre(100,100);
+        weapon = new Weapon(WeaponType.LONGSWORD);
+        fighter = new Fighter("Trogdor", 100,100, weapon, 20,10, Race.HUMAN);
+        ogre = new Ogre(100,100, weapon);
         spell = new Spell(Element.FIRE, 10);
     }
 

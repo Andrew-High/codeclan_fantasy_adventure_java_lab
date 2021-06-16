@@ -1,6 +1,7 @@
 package playerclasses;
 
 import character.Character;
+import treasure.Weapon;
 
 public abstract class Player extends Character {
 
@@ -9,11 +10,12 @@ public abstract class Player extends Character {
     private String name;
     private Race race;
 
-    public Player(String name, int hitPoints, int stamina, int strength, int intelligence, Race race) {
-        super(hitPoints, stamina);
-        this.name = name;
+
+    public Player(String name, int hitPoints, int stamina, Weapon equippedWeapon, int strength, int intelligence,  Race race) {
+        super(hitPoints, stamina, equippedWeapon);
         this.strength = strength;
         this.intelligence = intelligence;
+        this.name = name;
         this.race = race;
     }
 
@@ -31,5 +33,12 @@ public abstract class Player extends Character {
 
     public Race getRace() {
         return race;
+    }
+
+    public void attack(Character target) {
+        int attackPower = getWeaponDamage() + this.getStrength() / 5;
+        int previousHitPoints = target.getHitPoints();
+        int newHitPoints = previousHitPoints - attackPower;
+        target.setHitPoints(newHitPoints);
     }
 }

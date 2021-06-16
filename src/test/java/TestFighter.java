@@ -1,3 +1,4 @@
+import enemies.Ogre;
 import org.junit.Before;
 import org.junit.Test;
 import playerclasses.Fighter;
@@ -8,12 +9,14 @@ import static org.junit.Assert.assertEquals;
 public class TestFighter {
 
     private Fighter character;
-//    private Weapon weapon
+    private Ogre ogre;
+    private Weapon weapon;
 
     @Before
     public void setUp(){
-//        weapon = new Weapon;
-        character = new Fighter("Trogdor",100, 100,20,10, Race.HUMAN);
+        weapon = new Weapon(WeaponType.AXE);
+        character = new Fighter("Trogdor", 100,100, weapon, 20,10, Race.HUMAN);
+        ogre = new Ogre(100,100, weapon);
     }
 
     @Test
@@ -48,7 +51,8 @@ public class TestFighter {
 
     @Test
     public void characterCanAttack(){
-        assertEquals("I am attacking! Grrr", character.attack());
+        character.attack(ogre);
+        assertEquals(86, ogre.getHitPoints());
     }
 
 

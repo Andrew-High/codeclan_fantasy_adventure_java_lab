@@ -1,6 +1,6 @@
 package treasure;
 
-public class Gold {
+public class Gold implements ITreasure {
 
     private int value;
 

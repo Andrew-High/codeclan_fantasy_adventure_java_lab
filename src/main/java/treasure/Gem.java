@@ -1,10 +1,10 @@
 package treasure;
 
-public class Gems {
+public class Gem implements ITreasure {
 
     private int value;
 
-    public Gems() {
+    public Gem() {
         this.value = 10;
     }
 }

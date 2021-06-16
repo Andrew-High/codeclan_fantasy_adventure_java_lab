@@ -3,6 +3,7 @@ package enemies;
 import playerclasses.Fighter;
 import playerclasses.Player;
 import spells.Spell;
+import treasure.Weapon;
 
 import java.util.ArrayList;
 
@@ -10,8 +11,8 @@ public class Ogre extends Enemy{
 
     private ArrayList<Spell> spellList;
 
-    public Ogre(int hitPoints, int stamina) {
-        super(hitPoints, stamina);
+    public Ogre(int hitPoints, int stamina, Weapon weapon) {
+        super(hitPoints, stamina, weapon);
         this.spellList = new ArrayList<>();
     }
 

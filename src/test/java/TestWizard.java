@@ -6,6 +6,8 @@ import playerclasses.Race;
 import playerclasses.Wizard;
 import spells.Element;
 import spells.Spell;
+import treasure.Weapon;
+import treasure.WeaponType;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,12 +16,16 @@ public class TestWizard {
     private Wizard wizard;
     private Spell spell;
     private Ogre ogre;
+    private Weapon wand;
+    private Weapon weapon;
 
     @Before
     public void setUp(){
-        wizard = new Wizard("Harry", 100, 100, 10, 20, Race.HUMAN);
+        weapon = new Weapon(WeaponType.AXE);
+        wand = new Weapon(WeaponType.WAND);
+        wizard = new Wizard("Harry", 100, 100, wand, 10, 20, Race.HUMAN);
         spell = new Spell(Element.FIRE, 10);
-        ogre = new Ogre(100,100);
+        ogre = new Ogre(100,100, weapon);
     }
 
     @Test
@@ -38,7 +44,7 @@ public class TestWizard {
         wizard.addToSpellList(spell);
         wizard.cast(spell, ogre);
         wizard.cast(spell, ogre);
-        assertEquals(80, ogre.getHitPoints());
+        assertEquals(72, ogre.getHitPoints());
 
 
     }
