@@ -3,6 +3,9 @@ import org.junit.Before;
 import org.junit.Test;
 import playerclasses.Fighter;
 import playerclasses.Race;
+import enemies.Ogre;
+import treasure.Weapon;
+import treasure.WeaponType;
 
 import static org.junit.Assert.assertEquals;
 

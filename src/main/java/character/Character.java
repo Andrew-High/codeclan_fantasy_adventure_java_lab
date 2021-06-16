@@ -8,6 +8,8 @@ import java.util.ArrayList;
 public abstract class Character {
     private int hitPoints;
     private int stamina;
+    private Weapon equippedWeapon;
+    private ArrayList<ITreasure> inventory;
 
     public Character(int hitPoints, int stamina, Weapon equippedWeapon) {
         this.hitPoints = hitPoints;

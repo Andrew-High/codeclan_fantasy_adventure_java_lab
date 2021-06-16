@@ -1,5 +1,12 @@
 package dungeon;
 
+import treasure.Gold;
+import treasure.ITreasure;
+import enemies.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Room {
 
     private ArrayList<ITreasure> roomTreasure;
