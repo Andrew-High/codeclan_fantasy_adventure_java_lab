@@ -34,9 +34,7 @@ public abstract class Character {
         this.stamina = stamina;
     }
 
-    public void attack(Character target){
-
-    }
+    public abstract void attack(Character target);
 
     public int getWeaponDamage(){
         return this.equippedWeapon.getDamageFromEnum();
