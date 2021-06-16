@@ -5,7 +5,7 @@ import playerclasses.Race;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestCharacter {
+public class TestFighter {
 
     private Fighter character;
 //    private Weapon weapon
@@ -45,5 +45,12 @@ public class TestCharacter {
     public void characterHasAName(){
         assertEquals("Trogdor", character.getName());
     }
+
+    @Test
+    public void characterCanAttack(){
+        assertEquals("I am attacking! Grrr", character.attack());
+    }
+
+
 
 }

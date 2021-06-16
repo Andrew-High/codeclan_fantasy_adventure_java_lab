@@ -12,4 +12,20 @@ public class Wizard extends Player{
         super(name, hitPoints, stamina, strength, intelligence, race);
         spellList = new ArrayList<Spell>();
     }
+
+    public ArrayList<Spell> getSpellList() {
+        return spellList;
+    }
+
+    public void setSpellList(ArrayList<Spell> spellList) {
+        this.spellList = spellList;
+    }
+
+    public int countSpells() {
+        return spellList.size();
+    }
+
+    public void addToSpellList(Spell spell) {
+        spellList.add(spell);
+    }
 }

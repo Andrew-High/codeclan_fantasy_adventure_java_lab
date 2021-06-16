@@ -24,4 +24,10 @@ public abstract class Character {
     public void setStamina(int stamina) {
         this.stamina = stamina;
     }
+
+    public String attack(){
+        return "I am attacking! Grrr";
+    }
+
+
 }
