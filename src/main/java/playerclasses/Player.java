@@ -2,6 +2,7 @@ package playerclasses;
 
 import character.Character;
 import treasure.Weapon;
+import dungeon.Room;
 
 public abstract class Player extends Character {
 
@@ -40,5 +41,9 @@ public abstract class Player extends Character {
         int previousHitPoints = target.getHitPoints();
         int newHitPoints = previousHitPoints - attackPower;
         target.setHitPoints(newHitPoints);
+    }
+
+    public void lootRoom(Room room){
+
     }
 }
