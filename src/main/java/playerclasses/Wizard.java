@@ -1,5 +1,6 @@
 package playerclasses;
 
+import enemies.Enemy;
 import spells.Spell;
 
 import java.util.ArrayList;
@@ -28,4 +29,12 @@ public class Wizard extends Player{
     public void addToSpellList(Spell spell) {
         spellList.add(spell);
     }
+
+    public void cast(Spell spell, Enemy target) {
+        int spellPower = spell.getPower();
+        int previousHitPoints = target.getHitPoints();
+        int newHitPoints = previousHitPoints - spellPower;
+        target.setHitPoints(newHitPoints);
+    }
+
 }
