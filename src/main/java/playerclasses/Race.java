@@ -1,3 +1,5 @@
+package playerclasses;
+
 public enum Race {
 
     HUMAN,

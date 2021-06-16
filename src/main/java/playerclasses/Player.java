@@ -1,12 +1,17 @@
-public abstract class Player extends Character{
+package playerclasses;
+
+import character.Character;
+
+public abstract class Player extends Character {
 
     private int strength;
     private int intelligence;
     private String name;
     private Race race;
 
-    public Player(int hitPoints, int stamina, int strength, int intelligence, Race race) {
+    public Player(String name, int hitPoints, int stamina, int strength, int intelligence, Race race) {
         super(hitPoints, stamina);
+        this.name = name;
         this.strength = strength;
         this.intelligence = intelligence;
         this.race = race;

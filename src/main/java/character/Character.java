@@ -1,3 +1,5 @@
+package character;
+
 public abstract class Character {
     private int hitPoints;
     private int stamina;

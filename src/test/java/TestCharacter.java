@@ -1,5 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
+import playerclasses.Fighter;
+import playerclasses.Race;
 
 import static org.junit.Assert.assertEquals;
 
@@ -11,7 +13,7 @@ public class TestCharacter {
     @Before
     public void setUp(){
 //        weapon = new Weapon;
-        character = new Fighter(100, 100,20,10, Race.HUMAN);
+        character = new Fighter("Trogdor",100, 100,20,10, Race.HUMAN);
     }
 
     @Test
@@ -39,5 +41,9 @@ public class TestCharacter {
         assertEquals(10, character.getIntelligence());
     }
 
+    @Test
+    public void characterHasAName(){
+        assertEquals("Trogdor", character.getName());
+    }
 
 }
