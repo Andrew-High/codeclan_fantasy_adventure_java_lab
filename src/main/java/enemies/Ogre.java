@@ -1,5 +1,7 @@
 package enemies;
 
+import playerclasses.Fighter;
+import playerclasses.Player;
 import spells.Spell;
 
 import java.util.ArrayList;
@@ -29,4 +31,10 @@ public class Ogre extends Enemy{
         spellList.add(spell);
     }
 
+    public void cast(Spell spell, Player player) {
+        int spellPower = spell.getPower();
+        int previousHitPoints = player.getHitPoints();
+        int newHitPoints = previousHitPoints - spellPower;
+        player.setHitPoints(newHitPoints);
+    }
 }
