@@ -5,16 +5,38 @@ import static org.junit.Assert.assertEquals;
 
 public class TestCharacter {
 
-    private Character character;
+    private Fighter character;
+//    private Weapon weapon
 
     @Before
     public void setUp(){
-        character = new Character(100);
+//        weapon = new Weapon;
+        character = new Fighter(100, 100,20,10, Race.HUMAN);
     }
 
     @Test
     public void characterHasHitpoints(){
         assertEquals(100, character.getHitPoints());
+    }
+
+    @Test
+    public void characterHasStamina(){
+        assertEquals(100, character.getStamina());
+    }
+
+    @Test
+    public void characterIsAHuman(){
+        assertEquals(Race.HUMAN, character.getRace());
+    }
+
+    @Test
+    public void characterHasStrength(){
+        assertEquals(20, character.getStrength());
+    }
+
+    @Test
+    public void characterHasIntelligence(){
+        assertEquals(10, character.getIntelligence());
     }
 
 
