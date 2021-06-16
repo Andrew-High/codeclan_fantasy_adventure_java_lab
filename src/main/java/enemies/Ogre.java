@@ -10,9 +10,9 @@ public class Ogre extends Enemy{
 
     private ArrayList<Spell> spellList;
 
-    public Ogre(int hitPoints, int stamina, ArrayList<Spell> spellList) {
+    public Ogre(int hitPoints, int stamina) {
         super(hitPoints, stamina);
-        this.spellList = spellList;
+        this.spellList = new ArrayList<>();
     }
 
     public ArrayList<Spell> getSpellList() {
