@@ -10,10 +10,17 @@ public abstract class Enemy extends Character {
 
 
     public void attack(Character target) {
-        int attackPower = getWeaponDamage();
-        int previousHitPoints = target.getHitPoints();
-        int newHitPoints = previousHitPoints - attackPower;
-        target.setHitPoints(newHitPoints);
+        if (target instanceof IArmoured)  {
+            int attackPower = getWeaponDamage() - ((IArmoured) target).getArmour();
+            int previousHitPoints = target.getHitPoints();
+            int newHitPoints = previousHitPoints - attackPower;
+            target.setHitPoints(newHitPoints);
+        } else {
+            int attackPower = getWeaponDamage();
+            int previousHitPoints = target.getHitPoints();
+            int newHitPoints = previousHitPoints - attackPower;
+            target.setHitPoints(newHitPoints);
+        }
     }
 
 }

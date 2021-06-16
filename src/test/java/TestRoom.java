@@ -4,6 +4,7 @@ import enemies.Ogre;
 import org.junit.Before;
 import org.junit.Test;
 import playerclasses.Cleric;
+import playerclasses.Knight;
 import playerclasses.Race;
 import playerclasses.Wizard;
 import spells.Element;
@@ -12,6 +13,8 @@ import treasure.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
+import java.util.RandomAccess;
 
 import static org.junit.Assert.assertEquals;
 
@@ -29,9 +32,12 @@ public class TestRoom {
     private Gem gem;
     private Weapon weapon;
     private Weapon wand;
+    private Knight knight;
 
     @Before
     public void setUp(){
+        weapon = new Weapon(WeaponType.AXE);
+        knight = new Knight("chuck", 100, 100, weapon, 15, 15, Race.HALFLING, 5);
         room1 = new Room();
         wand = new Weapon(WeaponType.WAND);
         cleric = new Cleric("sir healbot", 50,50,weapon, 15,15, Race.DWARF);
@@ -41,7 +47,7 @@ public class TestRoom {
         ogre = new Ogre(100,100, weapon);
         gold = new Gold();
         gem = new Gem();
-        weapon = new Weapon(WeaponType.AXE);
+
     }
 
     @Test
@@ -79,5 +85,11 @@ public class TestRoom {
     public void roomCanAddWeaponToTreasure(){
         room1.addToTreasure(weapon);
         assertEquals(1, room1.getRoomTreasure().size());
+    }
+
+    @Test
+    public void attacksAccountForArmour(){
+        ogre.attack(knight);
+        assertEquals(95, knight.getHitPoints());
     }
 }
