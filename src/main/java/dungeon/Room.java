@@ -1,5 +1,6 @@
 package dungeon;
 
+import playerclasses.Player;
 import treasure.Gold;
 import treasure.ITreasure;
 import enemies.*;
@@ -11,10 +12,12 @@ public class Room {
 
     private ArrayList<ITreasure> roomTreasure;
     private ArrayList<Enemy> enemies;
+    private ArrayList<Player> deadPlayers;
 
     public Room(){
         this.roomTreasure = new ArrayList<>();
         this.enemies = new ArrayList<>();
+        this.deadPlayers = new ArrayList<>();
     }
 
     public ArrayList<ITreasure> getRoomTreasure() {
@@ -31,6 +34,14 @@ public class Room {
 
     public void setEnemies(ArrayList<Enemy> enemies) {
         this.enemies = enemies;
+    }
+
+    public ArrayList<Player> getDeadPlayers() {
+        return deadPlayers;
+    }
+
+    public void setDeadPlayers(ArrayList<Player> deadPlayers) {
+        this.deadPlayers = deadPlayers;
     }
 
     public void addToEnemies(Enemy enemy) {

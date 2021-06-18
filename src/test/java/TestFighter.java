@@ -61,6 +61,16 @@ public class TestFighter {
         assertEquals(86, ogre.getHitPoints());
     }
 
+    @Test
+    public void canDie(){
+        room.addToEnemies(ogre);
+        character.setHitPoints(1);
+        ogre.attack(character);
+        assertEquals(0, character.getHitPoints());
+        assertEquals(1, room.getRoomTreasure().size());
+        assertEquals(1, room.getDeadPlayers().size());
+    }
+
 
 
 }

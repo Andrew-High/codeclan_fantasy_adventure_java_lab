@@ -54,6 +54,14 @@ public abstract class Player extends Character {
         this.inventory = inventory;
     }
 
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
     public void attack(Enemy target) {
         if (target instanceof IArmoured)  {
             int attackPower = getWeaponDamage() - ((IArmoured) target).getArmour();

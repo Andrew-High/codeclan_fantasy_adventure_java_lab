@@ -45,6 +45,7 @@ public abstract class Enemy extends Character {
             if (target.getHitPoints() <= 0){
                 target.setHitPoints(0);
                 target.die();
+                target.getRoom().getDeadPlayers().add(target);
             }
         }
     }
