@@ -2,6 +2,7 @@ package enemies;
 
 import character.Character;
 import character.IArmoured;
+import dungeon.Room;
 import treasure.ITreasure;
 import treasure.Weapon;
 
@@ -41,6 +42,10 @@ public abstract class Enemy extends Character {
 
     public void addTreasureToLoot(ITreasure treasure){
         this.getLoot().add(treasure);
+    }
+
+    public void die(Room room){
+        this.getLoot().forEach(treasure -> room.getRoomTreasure().add(treasure));
     }
 
 }
