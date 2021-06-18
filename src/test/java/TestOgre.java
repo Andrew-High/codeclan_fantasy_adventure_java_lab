@@ -5,6 +5,7 @@ import playerclasses.Fighter;
 import playerclasses.Race;
 import spells.Element;
 import spells.Spell;
+import treasure.Gold;
 import treasure.Weapon;
 import treasure.WeaponType;
 
@@ -16,6 +17,7 @@ public class TestOgre {
     private Spell spell;
     private Fighter fighter;
     private Weapon weapon;
+    private Gold gold;
 
     @Before
     public void setUp(){
@@ -23,6 +25,7 @@ public class TestOgre {
         fighter = new Fighter("Trogdor", 100,100, weapon, 20,10, Race.HUMAN);
         ogre = new Ogre(100,100, weapon);
         spell = new Spell(Element.FIRE, 10);
+        gold = new Gold();
     }
 
     @Test
@@ -41,6 +44,12 @@ public class TestOgre {
         ogre.addToSpellList(spell);
         ogre.cast(spell, fighter);
         assertEquals(90, fighter.getHitPoints());
+    }
+
+    @Test
+    public void canAddLootToEnemies(){
+        ogre.addTreasureToLoot(gold);
+        assertEquals(1, ogre.getLoot().size());
     }
 
 }
