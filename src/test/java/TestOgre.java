@@ -1,3 +1,4 @@
+import dungeon.Room;
 import enemies.Ogre;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +19,7 @@ public class TestOgre {
     private Fighter fighter;
     private Weapon weapon;
     private Gold gold;
+    private Room room1;
 
     @Before
     public void setUp(){
@@ -26,6 +28,7 @@ public class TestOgre {
         ogre = new Ogre(100,100, weapon);
         spell = new Spell(Element.FIRE, 10);
         gold = new Gold();
+        room1 = new Room();
     }
 
     @Test
@@ -50,6 +53,15 @@ public class TestOgre {
     public void canAddLootToEnemies(){
         ogre.addTreasureToLoot(gold);
         assertEquals(1, ogre.getLoot().size());
+    }
+
+    @Test
+    public void canDie(){
+        room1.addToEnemies(ogre);
+        ogre.setHitPoints(10);
+        fighter.attack(ogre);
+        assertEquals(0, ogre.getHitPoints());
+        assertEquals(1, room1.getRoomTreasure());
     }
 
 }

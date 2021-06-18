@@ -1,5 +1,6 @@
 package playerclasses;
 
+import dungeon.Room;
 import enemies.Enemy;
 import spells.Spell;
 import treasure.Weapon;
@@ -11,8 +12,8 @@ public class Wizard extends Player{
     private ArrayList<Spell> spellList;
     private Weapon weapon;
 
-    public Wizard(String name, int hitPoints, int stamina, Weapon equippedWeapon, int strength, int intelligence, Race race) {
-        super(name, hitPoints, stamina, equippedWeapon, strength, intelligence, race);
+    public Wizard(String name, int hitPoints, int stamina, Weapon equippedWeapon, int strength, int intelligence, Race race, Room room) {
+        super(name, hitPoints, stamina, equippedWeapon, strength, intelligence, race, room);
         this.weapon = weapon;
         this.spellList = new ArrayList<Spell>();
     }

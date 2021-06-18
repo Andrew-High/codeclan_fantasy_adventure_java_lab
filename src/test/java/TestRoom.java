@@ -1,6 +1,5 @@
 import dungeon.Room;
 import enemies.Enemy;
-import enemies.Ogre;
 import enemies.Orc;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,9 +12,6 @@ import spells.Spell;
 import treasure.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.RandomAccess;
 
 import static org.junit.Assert.assertEquals;
 
@@ -38,7 +34,7 @@ public class TestRoom {
     @Before
     public void setUp(){
         weapon = new Weapon(WeaponType.AXE);
-        knight = new Knight("chuck", 100, 100, weapon, 15, 15, Race.HALFLING, 5);
+        knight = new Knight("chuck", 100, 100, weapon, 15, 15, Race.HALFLING, 5, );
         room1 = new Room();
         wand = new Weapon(WeaponType.WAND);
         cleric = new Cleric("sir healbot", 50,50,weapon, 15,15, Race.DWARF);

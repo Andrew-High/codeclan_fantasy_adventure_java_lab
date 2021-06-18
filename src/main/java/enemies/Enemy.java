@@ -32,11 +32,17 @@ public abstract class Enemy extends Character {
             int previousHitPoints = target.getHitPoints();
             int newHitPoints = previousHitPoints - attackPower;
             target.setHitPoints(newHitPoints);
+            if (target.getHitPoints() <= 0){
+                target.die();
+            }
         } else {
             int attackPower = getWeaponDamage();
             int previousHitPoints = target.getHitPoints();
             int newHitPoints = previousHitPoints - attackPower;
             target.setHitPoints(newHitPoints);
+            if (target.getHitPoints() <= 0){
+                target.die();
+            }
         }
     }
 

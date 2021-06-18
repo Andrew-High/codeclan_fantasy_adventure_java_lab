@@ -23,7 +23,7 @@ public class TestOrc {
         axe = new Weapon(WeaponType.AXE);
         orc = new Orc(100,100, axe);
         fighter = new Fighter("Trogdor", 100,100, longsword, 20,10, Race.HUMAN);
-        knight = new Knight("chuck", 100, 100, axe, 15, 15, Race.HALFLING, 5);
+        knight = new Knight("chuck", 100, 100, axe, 15, 15, Race.HALFLING, 5, );
 
     }
 
