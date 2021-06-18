@@ -1,3 +1,4 @@
+import dungeon.Room;
 import enemies.Enemy;
 import enemies.Ogre;
 import org.junit.Before;
@@ -18,12 +19,14 @@ public class TestWizard {
     private Ogre ogre;
     private Weapon wand;
     private Weapon weapon;
+    private Room room;
 
     @Before
     public void setUp(){
         weapon = new Weapon(WeaponType.AXE);
         wand = new Weapon(WeaponType.WAND);
-        wizard = new Wizard("Harry", 100, 100, wand, 10, 20, Race.HUMAN);
+        room = new Room();
+        wizard = new Wizard("Harry", 100, 100, wand, 10, 20, Race.HUMAN, room);
         spell = new Spell(Element.FIRE, 10);
         ogre = new Ogre(100,100, weapon);
     }

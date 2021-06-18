@@ -1,3 +1,4 @@
+import dungeon.Room;
 import enemies.Ogre;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,11 +15,13 @@ public class TestFighter {
     private Fighter character;
     private Ogre ogre;
     private Weapon weapon;
+    private Room room;
 
     @Before
     public void setUp(){
         weapon = new Weapon(WeaponType.AXE);
-        character = new Fighter("Trogdor", 100,100, weapon, 20,10, Race.HUMAN);
+        room = new Room();
+        character = new Fighter("Trogdor", 100,100, weapon, 20,10, Race.HUMAN, room);
         ogre = new Ogre(100,100, weapon);
     }
 

@@ -33,13 +33,13 @@ public class TestRoom {
 
     @Before
     public void setUp(){
-        weapon = new Weapon(WeaponType.AXE);
-        knight = new Knight("chuck", 100, 100, weapon, 15, 15, Race.HALFLING, 5, );
         room1 = new Room();
+        weapon = new Weapon(WeaponType.AXE);
+        knight = new Knight("chuck", 100, 100, weapon, 15, 15, Race.HALFLING, 5, room1);
         wand = new Weapon(WeaponType.WAND);
-        cleric = new Cleric("sir healbot", 50,50,weapon, 15,15, Race.DWARF);
+        cleric = new Cleric("sir healbot", 50,50,weapon, 15,15, Race.DWARF, room1);
         cureLightWounds = new Spell(Element.HEALING, 10);
-        wizard = new Wizard("Harry", 100, 100, wand, 10, 20, Race.HUMAN);
+        wizard = new Wizard("Harry", 100, 100, wand, 10, 20, Race.HUMAN, room1);
         fireball = new Spell(Element.FIRE, 10);
         orc = new Orc(100,100, weapon);
         gold = new Gold();

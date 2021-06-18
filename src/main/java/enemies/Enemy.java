@@ -3,6 +3,7 @@ package enemies;
 import character.Character;
 import character.IArmoured;
 import dungeon.Room;
+import playerclasses.Player;
 import treasure.ITreasure;
 import treasure.Weapon;
 
@@ -26,13 +27,14 @@ public abstract class Enemy extends Character {
         this.loot = loot;
     }
 
-    public void attack(Character target) {
+    public void attack(Player target) {
         if (target instanceof IArmoured)  {
             int attackPower = getWeaponDamage() - ((IArmoured) target).getArmour();
             int previousHitPoints = target.getHitPoints();
             int newHitPoints = previousHitPoints - attackPower;
             target.setHitPoints(newHitPoints);
             if (target.getHitPoints() <= 0){
+                target.setHitPoints(0);
                 target.die();
             }
         } else {
@@ -41,6 +43,7 @@ public abstract class Enemy extends Character {
             int newHitPoints = previousHitPoints - attackPower;
             target.setHitPoints(newHitPoints);
             if (target.getHitPoints() <= 0){
+                target.setHitPoints(0);
                 target.die();
             }
         }

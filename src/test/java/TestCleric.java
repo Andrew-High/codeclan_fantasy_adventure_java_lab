@@ -1,3 +1,4 @@
+import dungeon.Room;
 import enemies.Ogre;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,14 +21,16 @@ public class TestCleric {
     private Ogre ogre;
     private Weapon weapon;
     private Weapon wand;
+    private Room room;
 
     @Before
     public void setUp(){
         wand = new Weapon(WeaponType.WAND);
         weapon = new Weapon(WeaponType.MACE);
-        cleric = new Cleric("sir healbot", 50,50,weapon, 15,15, Race.DWARF);
+        room = new Room();
+        cleric = new Cleric("sir healbot", 50,50,weapon, 15,15, Race.DWARF, room);
         cureLightWounds = new Spell(Element.HEALING, 10);
-        wizard = new Wizard("Harry", 100, 100, wand, 10, 20, Race.HUMAN);
+        wizard = new Wizard("Harry", 100, 100, wand, 10, 20, Race.HUMAN, room);
         fireball = new Spell(Element.FIRE, 10);
         ogre = new Ogre(100,100, weapon);
 

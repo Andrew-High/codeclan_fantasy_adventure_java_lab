@@ -23,12 +23,12 @@ public class TestOgre {
 
     @Before
     public void setUp(){
+        room1 = new Room();
         weapon = new Weapon(WeaponType.LONGSWORD);
-        fighter = new Fighter("Trogdor", 100,100, weapon, 20,10, Race.HUMAN);
+        fighter = new Fighter("Trogdor", 100,100, weapon, 20,10, Race.HUMAN, room1);
         ogre = new Ogre(100,100, weapon);
         spell = new Spell(Element.FIRE, 10);
         gold = new Gold();
-        room1 = new Room();
     }
 
     @Test
@@ -58,10 +58,11 @@ public class TestOgre {
     @Test
     public void canDie(){
         room1.addToEnemies(ogre);
-        ogre.setHitPoints(10);
+        ogre.setHitPoints(1);
+        ogre.addTreasureToLoot(gold);
         fighter.attack(ogre);
         assertEquals(0, ogre.getHitPoints());
-        assertEquals(1, room1.getRoomTreasure());
+        assertEquals(1, room1.getRoomTreasure().size());
     }
 
 }

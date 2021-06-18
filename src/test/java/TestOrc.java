@@ -1,3 +1,4 @@
+import dungeon.Room;
 import enemies.Orc;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,14 +17,16 @@ public class TestOrc {
     private Weapon longsword;
     private Weapon axe;
     private Knight knight;
+    private Room room;
 
     @Before
     public void setUp(){
         longsword = new Weapon(WeaponType.LONGSWORD);
         axe = new Weapon(WeaponType.AXE);
         orc = new Orc(100,100, axe);
-        fighter = new Fighter("Trogdor", 100,100, longsword, 20,10, Race.HUMAN);
-        knight = new Knight("chuck", 100, 100, axe, 15, 15, Race.HALFLING, 5, );
+        room = new Room();
+        fighter = new Fighter("Trogdor", 100,100, longsword, 20,10, Race.HUMAN, room);
+        knight = new Knight("chuck", 100, 100, axe, 15, 15, Race.HALFLING, 5, room);
 
     }
 
