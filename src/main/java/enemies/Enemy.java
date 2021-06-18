@@ -2,11 +2,27 @@ package enemies;
 
 import character.Character;
 import character.IArmoured;
+import treasure.ITreasure;
 import treasure.Weapon;
 
+import java.util.ArrayList;
+
 public abstract class Enemy extends Character {
+
+    private ArrayList<ITreasure> loot;
+
     public Enemy(int hitPoints, int stamina, Weapon weapon) {
         super(hitPoints, stamina, weapon);
+        this.loot = new ArrayList<>();
+
+    }
+
+    public ArrayList<ITreasure> getLoot() {
+        return loot;
+    }
+
+    public void setLoot(ArrayList<ITreasure> loot) {
+        this.loot = loot;
     }
 
     public void attack(Character target) {
@@ -21,6 +37,10 @@ public abstract class Enemy extends Character {
             int newHitPoints = previousHitPoints - attackPower;
             target.setHitPoints(newHitPoints);
         }
+    }
+
+    public void addTreasureToLoot(ITreasure treasure){
+        this.getLoot().add(treasure);
     }
 
 }

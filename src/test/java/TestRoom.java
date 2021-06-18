@@ -1,6 +1,7 @@
 import dungeon.Room;
 import enemies.Enemy;
 import enemies.Ogre;
+import enemies.Orc;
 import org.junit.Before;
 import org.junit.Test;
 import playerclasses.Cleric;
@@ -27,7 +28,7 @@ public class TestRoom {
     private Spell cureLightWounds;
     private Wizard wizard;
     private Spell fireball;
-    private Ogre ogre;
+    private Orc orc;
     private Gold gold;
     private Gem gem;
     private Weapon weapon;
@@ -44,7 +45,7 @@ public class TestRoom {
         cureLightWounds = new Spell(Element.HEALING, 10);
         wizard = new Wizard("Harry", 100, 100, wand, 10, 20, Race.HUMAN);
         fireball = new Spell(Element.FIRE, 10);
-        ogre = new Ogre(100,100, weapon);
+        orc = new Orc(100,100, weapon);
         gold = new Gold();
         gem = new Gem();
 
@@ -60,7 +61,7 @@ public class TestRoom {
 
     @Test
     public void roomCanAddToEnemies(){
-        room1.addToEnemies(ogre);
+        room1.addToEnemies(orc);
         assertEquals(1, room1.getEnemies().size());
     }
 
@@ -87,9 +88,4 @@ public class TestRoom {
         assertEquals(1, room1.getRoomTreasure().size());
     }
 
-    @Test
-    public void attacksAccountForArmour(){
-        ogre.attack(knight);
-        assertEquals(95, knight.getHitPoints());
-    }
 }

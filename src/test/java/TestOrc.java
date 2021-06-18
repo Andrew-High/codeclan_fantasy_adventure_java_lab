@@ -2,6 +2,7 @@ import enemies.Orc;
 import org.junit.Before;
 import org.junit.Test;
 import playerclasses.Fighter;
+import playerclasses.Knight;
 import playerclasses.Race;
 import treasure.Weapon;
 import treasure.WeaponType;
@@ -14,6 +15,7 @@ public class TestOrc {
     private Fighter fighter;
     private Weapon longsword;
     private Weapon axe;
+    private Knight knight;
 
     @Before
     public void setUp(){
@@ -21,6 +23,7 @@ public class TestOrc {
         axe = new Weapon(WeaponType.AXE);
         orc = new Orc(100,100, axe);
         fighter = new Fighter("Trogdor", 100,100, longsword, 20,10, Race.HUMAN);
+        knight = new Knight("chuck", 100, 100, axe, 15, 15, Race.HALFLING, 5);
 
     }
 
@@ -29,5 +32,11 @@ public class TestOrc {
     public void orcCanAttack(){
         orc.attack(fighter);
         assertEquals(90, fighter.getHitPoints());
+    }
+
+    @Test
+    public void attacksAccountForArmour(){
+        orc.attack(knight);
+        assertEquals(95, knight.getHitPoints());
     }
 }
