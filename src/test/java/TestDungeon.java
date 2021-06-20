@@ -14,7 +14,7 @@ public class TestDungeon {
         Dungeon dungeon = new Dungeon();
         Room room = new Room();
         dungeon.populateLootList();
-        dungeon.distributeLootToEnemies();
+        dungeon.setUpRoomEnemies();
         Weapon weapon = new Weapon(WeaponType.AXE);
         Fighter fighter = new Fighter("Thorold", 100, 100, weapon, 20, 10, Race.DWARF, room);
         Orc orc = new Orc(100, 100, weapon);
